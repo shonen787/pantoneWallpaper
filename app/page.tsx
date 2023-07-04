@@ -11,9 +11,10 @@ export default function Home() {
   const [bottomRight, setbottomright]= useState("rgb(0, 255, 0)");
 
   useEffect(()=>{
-    settopLeft(topLeft)
+
 
   },[topLeft, bottomRight])
+
 
 
   const updateColors = (colors: {topLeft: string;bottomRight: string;}, bottomRight: string, topLeft: string)=>{
