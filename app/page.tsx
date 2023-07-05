@@ -2,7 +2,7 @@
 import PantonePaper from "@/components/PantonePaper";
 import PantoneSelector from "@/components/pantoneSelector";
 import { useState, useEffect } from "react";
-
+import domtoimage from 'dom-to-image';
 
 export default function Home() {
   const [colors, setColors] = useState({topLeft:"Color: Top Left", bottomRight: "Color: Bottom Right" });
@@ -23,6 +23,23 @@ export default function Home() {
     setbottomright(bottomRight);
   }
  
+  function tojpeg() {
+    let node = document.getElementById('pantone-paper');
+    console.log(node)
+    if (node != null){
+    domtoimage.toPng(node)
+    .then(function (dataUrl) {
+        var link = document.createElement('a');
+        link.download = 'my-image-name.jpeg';
+        link.href = dataUrl;
+        link.click();
+    })
+    .catch(function (error) {
+        console.error('oops, something went wrong!', error);
+    });
+  }
+  }
+
   
   return (
     <main className="bg-white h-screen w-screen flex flex-col ">
@@ -31,6 +48,7 @@ export default function Home() {
         <form className="grid w-fit grid-cols-2 gap-1">
           <PantoneSelector onSelectorChange={updateColors} colorProps={colors} topLeft={topLeft} bottomRight={bottomRight} ></PantoneSelector>
         </form>
+        <button onClick={tojpeg}>Save as Image</button>
       </div>
       <PantonePaper 
         colors={colors} 
