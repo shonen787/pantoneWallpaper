@@ -10,7 +10,7 @@ export default function PantonePaper({colors, topLeft, bottomRight}:paperprops){
         <div className={` grow flex items-center place-content-center`} style={{background: `linear-gradient(to right bottom,${topLeft} , ${bottomRight})`}} id="pantone-paper">
             <div className="   ">
             {/* <div className="grid grid-cols-12 grid-rows-6 grow "> */}
-                <div className="grid  grid-row-3 grid-flow-col border-2 border-solid h-80 w-80 p-2  border-pantone148" style={{background: `linear-gradient(to right bottom,${topLeft} , ${bottomRight})`}} id="pantone-paper">
+                <div className="grid  grid-row-3 grid-flow-col border-4 border-solid h-80 w-80 p-2 border-pantone182 " style={{background: `linear-gradient(to right bottom,${topLeft} , ${bottomRight})`}} id="pantone-paper">
                     <p className="text-pantone148 text-left text-xl">{colors.topLeft}</p>
              
                     <div className="flex place-items-end ">
