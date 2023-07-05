@@ -38,13 +38,13 @@ const handleFilterChange = (e: ChangeEvent<HTMLSelectElement>) =>{
 
 return(
     <>
-    <label className="text-amber-900">Color 1</label>
+    <label className="text-amber-900 text-pantone419">Color 1</label>
           <select id="color-top-left" className="text-black" onChange={handleFilterChange}>
             {pantonejs.map((pantone) => (
                 <option key={pantone.pantoneId} id={pantone.pantoneId} style={{"background": pantone.color}}>{pantone.pantoneId}</option>
             ))}
           </select>
-    <label className="text-amber-900">Color 2</label>
+    <label className="text-pantone419">Color 2</label>
         <select id="color-bottom-right" className="text-black" onChange={handleFilterChange}>
             {pantonejs.map((pantone) => (
                 <option className="text-black" key={pantone.pantoneId}
