@@ -926,8 +926,9 @@ module.exports = {
   pantone5845: "rgb(178,170,112)",
   pantone5855: "rgb(204,198,147)",
   pantone5865: "rgb(214,206,163)",
-  pantone5875: "rgb(224,219,181)"
-
+  pantone5875: "rgb(224,219,181)",
+  black: "rgb(0,0,0)",
+  white: "rgb(255,255,255)"
     
     }
   },

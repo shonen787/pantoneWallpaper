@@ -16,3 +16,9 @@ clip-path: polygon(73% 76%, 100% 0, 0 0, 0% 100%);
 clip-path: polygon(19% 18%, 100% 0, 100% 100%, 0% 100%);
 
 }
+
+
+.modal{
+  
+  position: absolute;
+}
