@@ -15,9 +15,7 @@ export default function Home() {
   const [topLeftModal, setTopLeftShowModal] = useState(false);
   const [bottomRightModal, setBottomRightShowModal] = useState(false);
 
-  useEffect(()=>{
-      console.log(`topLeftModal: ${topLeftModal}\nbottomRightModal: ${bottomRightModal}`)
-  },[topLeftModal,bottomRightModal])
+   useEffect(()=>{},[topLeftModal,bottomRightModal])
 
   useEffect(()=>{
 
@@ -38,7 +36,6 @@ export default function Home() {
 
     setBottomRightShowModal(true)
   }
-
 
   function tojpeg() {
     let node = document.getElementById('pantone-paper');
@@ -62,10 +59,9 @@ export default function Home() {
     <main className="bg-white h-screen wscreen flex flex-col" style={{zIndex: 0}}>
 
       <div className="p-2 bg-pantone5565  panponteselector">
-
-        <form className="flex gap-2 w-fit grid-cols-2">
+        {/* <form className="flex gap-2 w-fit grid-cols-2">
           <PantoneSelector onSelectorChange={updateColors} colorProps={colors} topLeft={topLeft} bottomRight={bottomRight} ></PantoneSelector>
-        </form>
+        </form> */}
         <button onClick={tojpeg} className="bg-pantone587 rounded-md w-16">Save</button>
       </div>
       
@@ -73,15 +69,18 @@ export default function Home() {
         colors={colors} 
         topLeft={topLeft} 
         bottomRight={bottomRight}
-        updateModal={updateModal}></PantonePaper>
+        updateModal={updateModal}
+      />
 
-        {topLeftModal && createPortal(
-          <Portal onclose={()=>setTopLeftShowModal(false)} />,
-          document.body.querySelector("main") as Element
-        )}{bottomRightModal && createPortal(
-          <Portal onclose={()=>setBottomRightShowModal(false)} />,
-          document.body.querySelector("main") as Element
-        )}
+         {topLeftModal && createPortal(
+            <Portal onClose={()=>setTopLeftShowModal(false)} colorSelection={updateColors} colorProps={colors} topLeft={topLeft} bottomRight={bottomRight} id={"topLeft"}/>,
+            document.body.querySelector("main") as Element
+          )}
+        
+          {bottomRightModal && createPortal(
+            <Portal onClose={()=>setBottomRightShowModal(false)} colorSelection={updateColors} colorProps={colors} topLeft={topLeft} bottomRight={bottomRight} id={"bottomRight"}/>,
+            document.body.querySelector("main") as Element
+          )}
     </main>
   )
 }
